@@ -1,0 +1,43 @@
+ 
+<!--
+****************************************************************************
+ HTML - The Gossip Project (Sinatra)
+****************************************************************************
+   	Ruby's Program - HTML Page
+   	Written by: Guillaume CHRISTE
+ 	Date: 28-Jan-2019
+    
+    Description:
+  		- 
+  		- 
+ 
+****************************************************************************
+*-->
+<html>
+	<head>
+		<title>The Gossip Project</title>
+	</head>
+
+	<body>
+
+		<h1>Hey you, welcome to the secret WebSite of Gossips</h1>
+		<h4>Here is the list of gossips: </h4>
+			<% gossips.each do |gossip| %>
+				<strong> <%= gossip.author %> </strong> <br/>
+				<%= gossip.content %><br/><br/>
+		    <% end %>
+		
+		<a href="/gossips/new/">Create a goosip</a>
+
+		<div>
+			<br/><br/>
+		</div>
+
+		<footer>XOXO - Gossip Girls</footer>
+	</body>
+</html>
+<!-- 
+ End of HTML Page ............................................................
+ .............................................................................
+ .............................................................................
+ -->

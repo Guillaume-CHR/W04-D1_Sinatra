@@ -1,10 +1,10 @@
 #! /usr/bin/env ruby
 ##****************************************************************************
-# RUBY - @NameOfTheProgram
+# RUBY - The Gossip Project (Sinatra)
 #****************************************************************************
-#   Ruby's Program - Name of the program
+#   Ruby's Program - config
 #   Written by: Guillaume CHRISTE
-# 	Date: Date of modification
+# 	Date: 28-Jan-2019
 #   
 #   Description:
 # 		- 
@@ -13,10 +13,14 @@
 # 	Gems:
 		require 'bundler'
 		Bundler.require
+#		
+#	Links:
+		$:.unshift File.expand_path("./../lib", __FILE__)
+		require 'controller'
+		require 'gossip'
 #
 #****************************************************************************
-
-
-# End of Program's name
+run ApplicationController
+# End of config ..............................................................
 #.............................................................................
 #.............................................................................

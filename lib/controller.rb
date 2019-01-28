@@ -1,26 +1,28 @@
 #! /usr/bin/env ruby
 ##****************************************************************************
-# RUBY - Main Program
+# RUBY - The Gossip Project (Sinatra)
 #****************************************************************************
-#   Ruby's Program - app.rb
+#   Ruby's Program - Controller
 #   Written by: Guillaume CHRISTE
-# 	Date: Date of modification
+# 	Date: 28-Jan-2019
 #   
 #   Description:
 # 		- 
 # 		- 
-# 		
-# 	Gems:
-		require 'bundler'
-		Bundler.require
-#		
-#	Links:
-		$:.unshift File.expand_path("./../lib", __FILE__)
-		require 'app/scrapper'
 #
 #****************************************************************************
-
-
-# End of Main Program ........................................................
+class ApplicationController < Sinatra::Base
+  get '/' do
+    erb :index, locals: {gossips: Gossip.all}
+  end
+  get '/gossips/new/' do 
+  	erb :new_gossip
+  end
+  post '/gossips/new/' do
+  	Gossip.new(params.fetch("gossip_author"),params.fetch("gossip_content")).save
+  	redirect '/'
+	end
+end
+# End of Controller ..........................................................
 #.............................................................................
 #.............................................................................
