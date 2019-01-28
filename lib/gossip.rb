@@ -32,6 +32,17 @@ class Gossip
 	  end
 	  return all_gossips
 	end
+
+	def self.find(id)
+		var_gossip = nil
+		(Gossip.all).each_with_index do |gossip,i|
+			puts "Gossip #{i}: #{gossip}"
+			if id == i
+				var_gossip = gossip
+			end
+		end
+		return var_gossip
+	end
 end
 # End of Gossip ..............................................................
 #.............................................................................

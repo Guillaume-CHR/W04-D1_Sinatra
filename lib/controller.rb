@@ -15,19 +15,19 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index, locals: {gossips: Gossip.all}
   end
+
   get '/gossips/new/' do 
   	erb :new_gossip
   end
+
   post '/gossips/new/' do
   	Gossip.new(params.fetch("gossip_author"),params.fetch("gossip_content")).save
   	redirect '/'
 	end
-	(Gossip.all).each_with_index do |gossip,i|
-		get "http://localhost:4567/gossips/#{i}/" do 
-			puts gossip
-		end
-	end	
 
+	get '/gossips/:id/' do
+		erb :gossipx, locals: {gossip: Gossip.find(params['id'].to_i)}
+	end
 end
 # End of Controller ..........................................................
 #.............................................................................

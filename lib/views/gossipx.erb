@@ -18,20 +18,9 @@
 	</head>
 
 	<body>
-		<h2>Create a new Gossip</h2>
-
-		<form action="/gossips/new/" method="POST">
-	  		Enter your name:<br>
-	  		<input type="text" name="gossip_author" value="">
-	  		<br><br>
-	  		Enter your Gossip:<br>
-	  		<input type="text" name="gossip_content" value="">
-	  		<br><br>
-	  		<input type="submit" value="Submit">
-		</form> 
-
-		<p>Click on submit to create a gossip</p>
-
+		<h4>Here is the gossip: </h4>
+				<strong> <%= gossip.author %> </strong> <br/>
+				<%= gossip.content %><br/><br/>
 		<div>
 			<br/><br/>
 		</div>
