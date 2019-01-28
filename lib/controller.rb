@@ -22,6 +22,12 @@ class ApplicationController < Sinatra::Base
   	Gossip.new(params.fetch("gossip_author"),params.fetch("gossip_content")).save
   	redirect '/'
 	end
+	(Gossip.all).each_with_index do |gossip,i|
+		get "http://localhost:4567/gossips/#{i}/" do 
+			puts gossip
+		end
+	end	
+
 end
 # End of Controller ..........................................................
 #.............................................................................
