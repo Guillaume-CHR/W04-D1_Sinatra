@@ -25,6 +25,20 @@ class Gossip
 	  end
 	end
 
+	def self.edit(author,content,id)
+		new_array=[]
+		CSV.foreach("./db/gossip.csv").with_index do |csv,i|
+			if id == i
+	  		new_array << ["#{author}","#{content}"]
+	  	else
+	  		new_array << csv
+	  	end
+	  end
+	  puts new_array
+	  binding.pry
+	  CSV.open("./db/gossip.csv", "w") {|csv| new_array.to_a.each {|row| csv << row}}
+	end
+
 	def self.all
 	  all_gossips = []
 	  CSV.read("./db/gossip.csv").each do |csv_line|
@@ -36,7 +50,6 @@ class Gossip
 	def self.find(id)
 		var_gossip = nil
 		(Gossip.all).each_with_index do |gossip,i|
-			puts "Gossip #{i}: #{gossip}"
 			if id == i
 				var_gossip = gossip
 			end

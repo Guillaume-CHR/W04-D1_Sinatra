@@ -1,8 +1,8 @@
-<!--
+ <!--
 ****************************************************************************
  HTML - The Gossip Project (Sinatra)
 ****************************************************************************
-   	Ruby's Program - index
+   	Ruby's Program - new_gossip
    	Written by: Guillaume CHRISTE
  	Date: 28-Jan-2019
     
@@ -14,21 +14,23 @@
 *-->
 <html>
 	<head>
-		<title>The Gossip Project</title>
+		<title>The Gossip Project - Edit</title>
 	</head>
 
 	<body>
+		<h2>Edit Gossip n° <%= ind %></h2>
 
-		<h1>Hey you, welcome to the secret WebSite of Gossips</h1>
-		<h4>Here is the list of gossips: </h4>
-			<% gossips.each_with_index do |gossip,index| %>
-				<strong> <%= gossip.author %> </strong> <br/>
-				<%= gossip.content %><br/>
-				<a href="/gossips/<%= index %>/">Click here to view gossip <%= index %></a>
-				<br/><br/>
-		    <% end %>
-		
-		<a href="/gossips/new/">Create a goosip</a>
+		<form action="/gossips/<%= ind %>/show/" method="POST">
+	  		Enter your name:<br>
+	  		<input type="text" name="gossip_author" value="<%= gossip.author %>">
+	  		<br><br>
+	  		Enter your Gossip:<br>
+	  		<input type="text" name="gossip_content" value="<%= gossip.content %>">
+	  		<br><br>
+	  		<input type="submit" value="Submit">
+		</form> 
+
+		<p>Click on submit to modify the gossip</p>
 
 		<div>
 			<br/><br/>
@@ -38,7 +40,7 @@
 	</body>
 </html>
 <!-- 
- End of index ................................................................
+ End of new_gossip ...........................................................
  .............................................................................
  .............................................................................
  -->

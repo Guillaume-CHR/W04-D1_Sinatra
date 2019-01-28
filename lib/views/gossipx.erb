@@ -14,13 +14,14 @@
 *-->
 <html>
 	<head>
-		<title>The Gossip Project</title>
+		<title>The Gossip Project - Gossip <%= ind %></title>
 	</head>
 
 	<body>
-		<h4>Here is the gossip: </h4>
+		<h4>Here is the gossip <%= ind %>: </h4>
 				<strong> <%= gossip.author %> </strong> <br/>
 				<%= gossip.content %><br/><br/>
+				<a href="/gossips/<%= ind %>/show/">Click here to edit the gossip <%= ind %></a>
 		<div>
 			<br/><br/>
 		</div>
